@@ -18,21 +18,24 @@ The project demonstrates Infrastructure as Code (IaC), AWS networking, modular T
 
 #  Technology Stack
 
-Technology	Purpose
-AWS	Cloud infrastructure platform
-Terraform	Infrastructure as Code and resource provisioning
-Amazon VPC	Network isolation
-Public Subnets	Host internet-facing resources
-Private Subnets	Host application and database resources
-Internet Gateway	Internet connectivity for public subnets
-NAT Gateway	Outbound internet access from private subnets
-Amazon EC2	Compute instances for web/application tiers
-Amazon RDS	Managed relational database
-Nginx	Web server/reverse proxy
-Ubuntu Linux	Operating system for EC2 instances
-AWS CLI	AWS resource management and verification
-Git/GitHub	Source-code and Terraform configuration management
-Terraform Modules	Reusable infrastructure components
+┌──────────────────────────┬──────────────────────────────────────────────────────┐
+│ Technology               │ Purpose                                              │
+├──────────────────────────┼──────────────────────────────────────────────────────┤
+│ AWS                      │ Cloud infrastructure platform                        │
+│ Terraform                │ Infrastructure as Code and resource provisioning     │
+│ Amazon VPC               │ Network isolation                                    │
+│ Public Subnets           │ Host internet-facing resources                      │
+│ Private Subnets          │ Host application and database resources             │
+│ Internet Gateway         │ Internet connectivity for public subnets            │
+│ NAT Gateway              │ Outbound internet access from private subnets       │
+│ Amazon EC2               │ Compute instances for web/application tiers         │
+│ Amazon RDS               │ Managed relational database                          │
+│ Nginx                    │ Web server/reverse proxy                             │
+│ Ubuntu Linux             │ Operating system for EC2 instances                  │
+│ AWS CLI                  │ AWS resource management and verification             │
+│ Git/GitHub               │ Source-code and Terraform configuration management  │
+│ Terraform Modules        │ Reusable infrastructure components                  │
+└──────────────────────────┴──────────────────────────────────────────────────────┘
 
 ---
 
@@ -105,6 +108,7 @@ Internet Gateway
 
 # Traffic Flow
 
+```text
 User
   |
   v
@@ -118,8 +122,10 @@ Private Application Server
   |
   v
 Private RDS Database
-
+```
 The database is not directly accessible from the internet. Security groups restrict communication between each tier.
+
+---
 
 # Prerequisites
 
