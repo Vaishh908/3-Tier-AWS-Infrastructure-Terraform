@@ -112,18 +112,18 @@ which represents the Asia Pacific (Mumbai) AWS region.
 
 ## Step 1: Update the System
 
-sudo apt update
-sudo apt upgrade -y
+          sudo apt update
+          sudo apt upgrade -y
 
 ---
 
 ## Step 2: Install Git
 
-sudo apt install git -y
+         sudo apt install git -y
 
 Verify:
 
-git --version
+        git --version
 
 ---
 
