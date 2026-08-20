@@ -18,93 +18,31 @@ The project demonstrates Infrastructure as Code (IaC), AWS networking, modular T
 
 #  Technology Stack
 
-┌──────────────────────────┬──────────────────────────────────────────────────────┐
-│ Technology               │ Purpose                                              │
-├──────────────────────────┼──────────────────────────────────────────────────────┤
-│ AWS                      │ Cloud infrastructure platform                        │
-│ Terraform                │ Infrastructure as Code and resource provisioning     │
-│ Amazon VPC               │ Network isolation                                    │
-│ Public Subnets           │ Host internet-facing resources                      │
-│ Private Subnets          │ Host application and database resources             │
-│ Internet Gateway         │ Internet connectivity for public subnets            │
-│ NAT Gateway              │ Outbound internet access from private subnets       │
-│ Amazon EC2               │ Compute instances for web/application tiers         │
-│ Amazon RDS               │ Managed relational database                          │
-│ Nginx                    │ Web server/reverse proxy                             │
-│ Ubuntu Linux             │ Operating system for EC2 instances                  │
-│ AWS CLI                  │ AWS resource management and verification             │
-│ Git/GitHub               │ Source-code and Terraform configuration management  │
-│ Terraform Modules        │ Reusable infrastructure components                  │
-└──────────────────────────┴──────────────────────────────────────────────────────┘
+| Technology            | Purpose                                            |
+| --------------------- | -------------------------------------------------- |
+| **AWS**               | Cloud infrastructure platform                      |
+| **Terraform**         | Infrastructure as Code and resource provisioning   |
+| **Amazon VPC**        | Network isolation                                  |
+| **Public Subnets**    | Host internet-facing resources                     |
+| **Private Subnets**   | Host application and database resources            |
+| **Internet Gateway**  | Internet connectivity for public subnets           |
+| **NAT Gateway**       | Outbound internet access from private subnets      |
+| **Amazon EC2**        | Compute instances for web/application tiers        |
+| **Amazon RDS**        | Managed relational database                        |
+| **Nginx**             | Web server/reverse proxy                           |
+| **Ubuntu Linux**      | Operating system for EC2 instances                 |
+| **AWS CLI**           | AWS resource management and verification           |
+| **Git/GitHub**        | Source-code and Terraform configuration management |
+| **Terraform Modules** | Reusable infrastructure components                 |
 
 ---
 
 #  Architectural Diagram
-                         Internet
-                            |
-                            |
-                    +----------------+
-                    | Internet       |
-                    | Gateway (IGW)  |
-                    +-------+--------+
-                            |
-                    +-------v--------+
-                    |   AWS VPC      |
-                    |  10.0.0.0/16   |
-                    +-------+--------+
-                            |
-              +-------------+-------------+
-              |                           |
-        Availability Zone A          Availability Zone B
-              |                           |
-       +------v------+             +------v------+
-       | Public      |             | Public      |
-       | Subnet      |             | Subnet      |
-       | 10.0.1.0/24 |             | 10.0.2.0/24 |
-       +------+------+             +------+------+
-              |                           |
-       +------v------+             +------v------+
-       | Nginx /     |             | Nginx /     |
-       | Web Server  |             | Web Server  |
-       | EC2         |             | EC2         |
-       +------+------+             +------+------+
-              |                           |
-              +-------------+-------------+
-                            |
-                     Application Tier
-                            |
-              +-------------+-------------+
-              |                           |
-       +------v------+             +------v------+
-       | Private     |             | Private     |
-       | App Subnet  |             | App Subnet  |
-       +------+------+             +------+------+
-              |                           |
-       +------v------+             +------v------+
-       | Application |             | Application |
-       | EC2         |             | EC2         |
-       +------+------+             +------+------+
-              |                           |
-              +-------------+-------------+
-                            |
-                       Database Tier
-                            |
-                 +----------v----------+
-                 | Private DB Subnets  |
-                 |                    |
-                 |   Amazon RDS        |
-                 |   MySQL Database    |
-                 +---------------------+
 
-Private Subnets
-      |
-      v
-+-------------+
-| NAT Gateway |
-+-------------+
-      |
-      v
-Internet Gateway
+
+<img width="1024" height="1536" alt="ChatGPT Image Aug 20, 2026, 12_34_35 PM" src="https://github.com/user-attachments/assets/8364c451-79f7-443b-88e2-1e4b758eae54" />
+
+---
 
 # Traffic Flow
 
