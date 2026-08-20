@@ -39,29 +39,7 @@ The project demonstrates Infrastructure as Code (IaC), AWS networking, modular T
 
 #  Architectural Diagram
 
-
-<img width="1024" height="1536" alt="ChatGPT Image Aug 20, 2026, 12_34_35 PM" src="https://github.com/user-attachments/assets/8364c451-79f7-443b-88e2-1e4b758eae54" />
-
----
-
-# Traffic Flow
-
-```text
-User
-  |
-  v
-Internet Gateway
-  |
-  v
-Public Web Server
-  |
-  v
-Private Application Server
-  |
-  v
-Private RDS Database
-```
-The database is not directly accessible from the internet. Security groups restrict communication between each tier.
+<img width="1536" height="1024" alt="ChatGPT Image Aug 20, 2026, 07_21_58 PM" src="https://github.com/user-attachments/assets/c83f9581-daed-4459-a255-a7d16b17a760" />
 
 ---
 
@@ -78,27 +56,28 @@ Software
 
 Install and verify:
 
-terraform --version
-aws --version
-git --version
+- terraform --version
+- aws --version
+- git --version
 
 Optional:
 
-ansible --version
+- ansible --version
+
 AWS Requirements
 
 The AWS account should have permission to create:
 
-    VPC
-   Subnets
-   Internet Gateway
-   NAT Gateway
-   Route Tables
-   Security Groups
-   EC2 instances
-   RDS database
-   IAM-related resources if required
-   AWS Region
+   -  VPC
+   - Subnets
+   - Internet Gateway
+   -  NAT Gateway
+    - Route Tables
+    -  Security Groups
+     - EC2 instances
+     - RDS database
+     - IAM-related resources if required
+     - AWS Region
 
 The project can be deployed in:
 
