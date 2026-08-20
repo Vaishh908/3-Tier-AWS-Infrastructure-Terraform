@@ -143,7 +143,7 @@ If Terraform is not installed, install it using the official HashiCorp installat
 
 ## Step 5: Clone the Project
 
-git clone <>
+git clone <https://github.com/Vaishh908/3-Tier-AWS-Infrastructure-Terraform.git>
 
 Move into the project:
 
