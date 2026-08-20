@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>3-Tier AWS Infrastructure</title>
+</head>
+<body>
+  <h1>3-Tier AWS Infrastructure</h1>
+  <p>Web Tier: Nginx</p>
+  <p>Application Tier: Apache/PHP</p>
+  <p>Database Tier: Amazon RDS MySQL</p>
+
+  <h2>Registration Form</h2>
+  <form action="/submit.php" method="POST">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Phone:</label><br>
+    <input type="text" name="phone" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
