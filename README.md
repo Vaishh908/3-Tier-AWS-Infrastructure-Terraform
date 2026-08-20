@@ -219,61 +219,6 @@ find . -maxdepth 3 -type f
 
 ---
 
-### Important Files
-
-main.tf
-
-Contains the main Terraform configuration and module calls.
-
-variables.tf
-
-Defines configurable variables such as:
-
-AWS region
-VPC CIDR
-subnet CIDRs
-instance type
-database configuration
-
-outputs.tf
-
-Displays useful information after deployment, such as:
-
-VPC ID
-subnet IDs
-EC2 public IP
-RDS endpoint
-
-modules/vpc
-
-Responsible for:
-
-VPC
-public subnets
-private subnets
-Internet Gateway
-NAT Gateway
-route tables
-
-modules/ec2
-
-Responsible for:
-
-EC2 instances
-security groups
-user-data configuration
-web/application server setup
-
-modules/rds
-
-Responsible for:
-
-RDS subnet group
-RDS database
-database security group
-database configuration
-
-
 # Implementation Steps
 
 ## Step 1: Create the Project Directory
@@ -283,12 +228,6 @@ Create a dedicated directory for the Terraform project.
 ```bash
 mkdir 3-tier-terraform-aws
 cd 3-tier-terraform-aws
-```
-
-Initialize Git:
-
-```bash
-git init
 ```
 
 Create the main Terraform files:
@@ -311,6 +250,9 @@ Verify:
 ```bash
 tree
 ```
+
+<img width="1432" height="1012" alt="Screenshot 2026-08-19 153612" src="https://github.com/user-attachments/assets/3eab5a4a-ba81-49f8-9724-54d3cd0a375b" />
+
 
 ---
 
@@ -410,6 +352,9 @@ Create:
 ```bash
 touch main.tf variables.tf outputs.tf
 ```
+
+<img width="1225" height="373" alt="Screenshot 2026-08-19 155235" src="https://github.com/user-attachments/assets/46d44cd9-6993-4204-9c88-c255c9f38794" />
+
 
 The VPC module is responsible for creating the complete networking layer.
 
@@ -1221,6 +1166,7 @@ terraform.tfstate.*
 *.tfvars.json
 *.pem
 ```
+<img width="1920" height="1080" alt="Screenshot 2026-08-19 152934" src="https://github.com/user-attachments/assets/2b89aaba-6706-4fb0-a191-a7694341e3bf" />
 
 ---
 
@@ -1479,6 +1425,7 @@ Test:
 ```bash
 curl http://localhost
 ```
+<img width="1915" height="834" alt="Screenshot 2026-08-19 200752" src="https://github.com/user-attachments/assets/087c4396-3528-4a7f-9a98-148a4f1f2cad" />
 
 ---
 
@@ -1559,6 +1506,7 @@ Application Tier
        v
 RDS Database
 ```
+<img width="1919" height="811" alt="Screenshot 2026-08-19 204647" src="https://github.com/user-attachments/assets/a28b826a-373c-4471-b39c-e86a48fed052" />
 
 ---
 
@@ -1628,27 +1576,23 @@ This demonstrates that the Terraform configuration correctly represents the depl
 
 ---
 
-# Step 48: Capture Screenshots for Project Documentation
+# Result
 
-For the project report or GitHub README, capture screenshots of:
+The 3-Tier Infrastructure Deployment Using Terraform Modules was successfully designed and deployed on AWS. Terraform was used to provision the infrastructure in a modular and automated manner.
 
-1. Terraform project structure
-2. `terraform init`
-3. `terraform validate`
-4. `terraform plan`
-5. Successful `terraform apply`
-6. AWS VPC
-7. Public and private subnets
-8. Internet Gateway
-9. NAT Gateway
-10. Route tables
-11. Security groups
-12. Running EC2 instances
-13. Nginx status
-14. Nginx webpage
-15. RDS instance
-16. RDS connectivity
-17. `terraform output`
-18. Final architecture
+The deployed environment consists of a custom VPC distributed across two Availability Zones, with public subnets for the web tier and private subnets for the application and database tiers. An Internet Gateway provides internet connectivity to the public tier, while a NAT Gateway enables controlled outbound internet access for private application servers.
+
+The web tier was successfully configured with EC2 and Nginx, and the web server was verified through its public IP address. The application tier was deployed in private subnets without public IP addresses, providing an additional layer of security. The database tier was implemented using Amazon RDS MySQL in private database subnets.
+
+Security groups were configured to control communication between the tiers. Internet traffic is allowed to reach the web tier, application traffic is restricted to the application tier, and MySQL traffic on port 3306 is restricted to the application security group. The RDS database is not publicly accessible.
+
+Terraform commands such as terraform init, terraform fmt, terraform validate, terraform plan, and terraform apply were used to initialize, validate, plan, and deploy the infrastructure. AWS CLI and application-level testing were used to verify the deployed resources and connectivity.
+
+---
+
+# Conclusion
+
+The 3-Tier Infrastructure Deployment Using Terraform Modules project successfully demonstrates the implementation of a secure, scalable, and organized cloud infrastructure on AWS using Infrastructure as Code. The architecture separates the application into Web, Application, and Database tiers, with public and private subnets distributed across multiple Availability Zones. Terraform modules were used to provision and manage the VPC, subnets, route tables, Internet Gateway, NAT Gateway, EC2 instances, security groups, and Amazon RDS. The web tier was configured with Nginx, while the application and database tiers were securely placed in private subnets. The infrastructure was validated and tested using Terraform commands, AWS CLI, and application connectivity checks. Overall, this project demonstrates practical knowledge of AWS networking, Terraform modularization, security, automation, and cloud infrastructure management, while providing a strong foundation for future improvements such as load balancing, auto scaling, monitoring, HTTPS, and CI/CD automation.
+
 
 
