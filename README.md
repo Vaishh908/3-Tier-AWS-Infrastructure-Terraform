@@ -89,20 +89,20 @@ AWS Requirements
 
 The AWS account should have permission to create:
 
-VPC
-Subnets
-Internet Gateway
-NAT Gateway
-Route Tables
-Security Groups
-EC2 instances
-RDS database
-IAM-related resources if required
-AWS Region
+    VPC
+   Subnets
+   Internet Gateway
+   NAT Gateway
+   Route Tables
+   Security Groups
+   EC2 instances
+   RDS database
+   IAM-related resources if required
+   AWS Region
 
 The project can be deployed in:
 
-ap-south-1
+     ap-south-1
 
 which represents the Asia Pacific (Mumbai) AWS region.
 
@@ -111,12 +111,14 @@ which represents the Asia Pacific (Mumbai) AWS region.
 # Installation Steps
 
 ## Step 1: Update the System
+
 sudo apt update
 sudo apt upgrade -y
 
 ---
 
 ## Step 2: Install Git
+
 sudo apt install git -y
 
 Verify:
@@ -137,14 +139,14 @@ aws configure
 
 Enter the required credentials:
 
-AWS Access Key ID: YOUR_ACCESS_KEY
-AWS Secret Access Key: YOUR_SECRET_KEY
-Default region name: ap-south-1
-Default output format: json
+        AWS Access Key ID: YOUR_ACCESS_KEY
+        AWS Secret Access Key: YOUR_SECRET_KEY
+        Default region name: ap-south-1
+        Default output format: json
 
 Verify:
 
-aws sts get-caller-identity
+       aws sts get-caller-identity
 
 ---
 
