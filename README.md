@@ -156,10 +156,13 @@ terraform --version
 
 If Terraform is not installed, install it using the official HashiCorp installation method for Ubuntu.
 
+<img width="1912" height="1024" alt="Screenshot 2026-08-19 144432" src="https://github.com/user-attachments/assets/77695959-9379-403e-a027-cc5d84a0a550" />
+
 ---
 
 ## Step 5: Clone the Project
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+
+git clone <>
 
 Move into the project:
 
@@ -1648,149 +1651,4 @@ For the project report or GitHub README, capture screenshots of:
 17. `terraform output`
 18. Final architecture
 
----
 
-# Step 49: Generate the Terraform Dependency Graph
-
-Terraform can generate a dependency graph:
-
-```bash
-terraform graph
-```
-
-For a visual graph, if Graphviz is installed:
-
-```bash
-terraform graph | dot -Tpng > terraform-graph.png
-```
-
-This provides an additional technical diagram showing Terraform resource dependencies.
-
----
-
-# Step 50: Commit the Project to GitHub
-
-Check the files:
-
-```bash
-git status
-```
-
-Add the project:
-
-```bash
-git add .
-```
-
-Commit:
-
-```bash
-git commit -m "Deploy 3-tier AWS infrastructure using Terraform modules"
-```
-
-Add the GitHub repository:
-
-```bash
-git remote add origin <YOUR_GITHUB_REPOSITORY_URL>
-```
-
-Push:
-
-```bash
-git branch -M main
-git push -u origin main
-```
-
-Before pushing, verify that no AWS access keys, private keys, passwords, or Terraform state files are included.
-
----
-
-# Step 51: Destroy the Infrastructure When Finished
-
-If the infrastructure is only required for testing or demonstration, destroy it to avoid unnecessary AWS charges.
-
-First review:
-
-```bash
-terraform plan -destroy
-```
-
-Then run:
-
-```bash
-terraform destroy
-```
-
-Confirm:
-
-```text
-yes
-```
-
-Terraform removes the infrastructure it created.
-
-Afterward verify:
-
-```bash
-terraform state list
-```
-
-and check the AWS console to confirm that unnecessary resources have been removed.
-
----
-
-# Final Implementation Flow
-
-The complete implementation can be summarized as:
-
-```text
-1. Configure AWS CLI
-        ↓
-2. Create Terraform project
-        ↓
-3. Configure AWS provider
-        ↓
-4. Create VPC module
-        ↓
-5. Create public/private subnets
-        ↓
-6. Create Internet Gateway
-        ↓
-7. Create NAT Gateway
-        ↓
-8. Configure route tables
-        ↓
-9. Create security groups
-        ↓
-10. Create EC2 module
-        ↓
-11. Install/configure Nginx
-        ↓
-12. Deploy private application servers
-        ↓
-13. Create RDS module
-        ↓
-14. Create DB subnet group
-        ↓
-15. Create private RDS database
-        ↓
-16. terraform init
-        ↓
-17. terraform validate
-        ↓
-18. terraform plan
-        ↓
-19. terraform apply
-        ↓
-20. Verify AWS resources
-        ↓
-21. Test Web → Application → Database
-        ↓
-22. Document results
-        ↓
-23. Push project to GitHub
-        ↓
-24. terraform destroy (when no longer required)
-```
-
-```
